@@ -1,6 +1,8 @@
-# Tímatalvan: Tímatalvu-app til WebUntis
+# Tímatalvan
 
-*Tímatalvu-app til Vinnuháskúlan og aðrar skúlar, ið nýta WebUntis.*
+**Tímatalvu forrit til webuntis tímatalvuna hjá Vinnuháskúlanum.**
+
+Google drive leinki við forritinum og vegleiðing: [Tímatalvan](https://drive.google.com/drive/folders/1woR5El6N9R-dJjr69zTJUhJhPGfaQ-sg?usp=drive_link)
 
 <p align="center">
   <img src="tt.png" alt="Mynd av tímatalvuni" width="100%"/>
@@ -8,30 +10,29 @@
 
 ---
 
-**Tímatalvan** er eitt lætt forrit, ment við Electron, vísir tímatalvurnar frá [WebUntis](https://webuntis.com/). Forritið er gjørt til næmingar og lærarar á vinnuháskúlanum.
+**Tímatalvan** er eitt lítið forrit, ment við Electron, ið vísir tímatalvuna frá [WebUntis](https://webuntis.com/). Forritið er gjørt til næmingar og lærarar á vinnuháskúlanum.
 
-Endamálið við verkætlanini er at gera tað lættari og skjótari at hyggja at tímatalvuni, við hentum hentleikum sum:
+Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja tímatalvuna, við hentum hentleikum sum:
 
 
 -  **Minnir teg á tímar:** Fá boð 5 minuttir áðrenn ein tími byrjar.
--  **Sløkk boðini:** Tú kanst lættliga sløkkja fyri boðunum, um tú ikki ynskir tey.
--  **Verjir títt privatlív:** Ongar sporingarfunktiónir eru í forritinum.
+-  **Egin tímatalva:** tekur tú fak saman við fleiri flokkum? Tú kanst velja hvørji fak verða víst.
 -  **Føroyskt mál og snið:** Bygt við føroyskum brúkarum í huga.
 
 
-<p align="center">
-  <img src="tt2.png" alt="Mynd av stillingum" width="70%"/>
+<p align="right">
+  <img src="tt2.png" alt="Mynd av stillingum" width="45%"/>
 </p>
----
+
 
 ## 📦 Hentleikar
 
--   **Skjót og móttakilig:** Forritið goymir tímatalvuna lokalt (*caching*), so tað er skjótt at brúka, sjálvt um servarin hjá Untis er seinur.
--   **Fleiri í senn:** Vís tímatalvur fyri fleiri flokkar ella lærarar í somu mynd.
+-   **Skjótt:** Forritið goymir tímatalvuna lokalt (*caching*), so tað er skjótt at brúka, sjálvt um servarin hjá Untis er seinur.
+-   **Fleiri í senn:** Vís tímatalvur fyri fleiri flokkar á eini tímatalvu.
 -   **Reint snið:** Ein einkul brúkaraflata, ið leggur dent á tað, ið hevur týdning: tína tímatalvu.
 -   **System Tray:** Forritið liggur stillisliga í tínum *system tray* og er altíð klárt við einum klikki.
--   **Boð:** Fá sjálvvirkandi áminningar um komandi tímar og fríkorter.
--   **Dagfør við einum klikki:** Trýst á ikonið fyri at dagføra tímatalvuna.
+-   **Boð:** Fá áminningar um komandi tímar og steðgir.
+-   **Byrjar við innritan:** Tímatalvan kann byrja av sær sjálvari tá  ið tú ritar inn.
 
 
 ---
@@ -42,13 +43,13 @@ Endamálið við verkætlanini er at gera tað lættari og skjótari at hyggja a
 
 ### Installatión
 ```bash
-# Klona hetta repository
+# Klona hetta repository'ið
 git clone https://github.com/Timatalvan/Timatalvan.git
 
 # Far inn í mappuna
 cd Timatalvan
 
-# Installera allar kravdar pakkarnar
+# Installera allar pakkarnar
 npm install
 
 # Koyr forritið
@@ -59,12 +60,13 @@ npm start
 
 ## 🛠 Menning
 
-Høvuðslogikkurin liggur í hesum fílum:
+Høvuðslogikkurin liggur í hesum forritinum:
 - `src/main.js` - Handfer vindeygað, logikk fyri tekn, boð og goymslu.
+- `src/untis.js`- Tekur sær av sambandinum millum tímatalvuna og webuntis heimasíðuna.
 - `src/renderer.js` - Handfer brúkaraflatuna.
 - `src/preload.cjs` - Brúgv millum Electron og brúkaraflatuna á ein tryggan hátt.
 
-Ynskir tú at byggja forritið til ein installeringsfíl (`.exe`), kanst tú koyra hesa kommandoina:
+Ynskir tú at byggja forritið til ein installeringsfíl (`.exe`), kanst tú brúka hesa kommandoina:
 ```bash
 npm run build
 ```
@@ -90,10 +92,10 @@ Verkætlanin er útgivin undir **MIT Lisensinum**. Sí `LICENSE` fyri meira kunn
 
 Henda appin:
 - Savnar ella sendir ikki brúkaradáta.
-- Nýtir ikki nakra slag av analýsu ella sporing.
+- Nýtir ikki nakað slag av analysu ella sporing.
 - Fær ikki atgongd til staðseting, mikrofon ella kamera.
 
-Allar upplýsingar verða goymdar lokalt á tínari teldu.
+Allir upplýsingar um flokksval verða goymdir lokalt á tínari teldu.
 
 ---
 
