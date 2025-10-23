@@ -20,7 +20,7 @@
 
 ---
 
-**Tímatalvan** er eitt lítið forrit, ment við Electron, ið vísir tímatalvuna frá [WebUntis](https://webuntis.com/). Forritið er gjørt til næmingar og lærarar á vinnuháskúlanum.
+**Tímatalvan** er eitt lítið forrit ment við Electron, ið vísir tímatalvuna frá [WebUntis](https://webuntis.com/). Forritið er gjørt til næmingar og lærarar á vinnuháskúlanum.
 
 Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja tímatalvuna, við hentum hentleikum sum:
 
@@ -40,14 +40,21 @@ Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja 
 -   **Skjótt:** Forritið goymir tímatalvuna lokalt (*caching*), so tað er skjótt at brúka, sjálvt um servarin hjá Untis er seinur.
 -   **Fleiri fak:** Vís ymiskt fak frá fleiri flokkum á eini tímatalvu.
 -   **Reint snið:** Einkul brúkaraflata, ið leggur dent á tað, ið hevur týdning.
--   **Ikki til ampa:** Forritið liggur í tínum *system tray* við síðuna av klokkuni, og er altíð klárt við einum klikki.
+-   **Ikki til ampa:** Forritið liggur í tínum *system tray* við síðuna av klokkuni, og er klárt við einum klikki.
 -   **Boð:** Fá áminningar um komandi tímar og steðgir.
--   **Byrjar við innritan:** Tímatalvan byrjar av sær sjálvari tá ið tú ritar inn, um tú velur tað.
+-   **Byrjar við innritan:** Tímatalvan byrjar av sær sjálvari, tá ið tú ritar inn - um tú velur tað.
 
+<br>
+
+Ynskir tú at fáa tímatalvuna á tína teldu, kanst tú gera tað her &rarr; [Tímatalvan](https://drive.google.com/drive/folders/1woR5El6N9R-dJjr69zTJUhJhPGfaQ-sg?usp=drive_link)
+. Vegleiðing er eisini á sama stað.
+<br>
+
+** *Gevið gætur: forritið kann innihalda páskaregg* **
 
 ---
 
-# Tú kanst byggja og broyta forritið
+# Vilt betra um forritið, ella bara royna tað í terminalinum
 
 ### Kravdur útbúnaður
 - [Node.js](https://nodejs.org/)
@@ -72,9 +79,9 @@ npm start
 
 ## 🛠 Menning
 
-Høvuðslogikkurin liggur í hesum forritinum:
+Høvuðslogikkurin í hesum forritinum:
 - `src/main.js` - Handfer vindeygað, logikk fyri tekn, boð og goymslu.
-- `src/untis.js`- Tekur sær av sambandinum millum tímatalvuna og webuntis heimasíðuna.
+- `src/untis.js`- Tekur sær av sambandinum millum tímatalvuna og webUntis heimasíðuna.
 - `src/renderer.js` - Handfer brúkaraflatuna.
 - `src/preload.cjs` - Brúgv millum Electron og brúkaraflatuna á ein tryggan hátt.
 
@@ -102,7 +109,7 @@ Verkætlanin er útgivin undir **MIT Lisensinum**. Sí `LICENSE` fyri meira kunn
 
 ## 🔐 Privatlivsfrágreiðing
 
-Henda appin:
+Hetta forritið:
 - Savnar ella sendir ikki brúkaradáta.
 - Nýtir ikki nakað slag av analysu ella sporing.
 - Fær ikki atgongd til staðseting, mikrofon ella kamera.
