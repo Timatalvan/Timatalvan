@@ -3,7 +3,7 @@
 *Tímatalvu-app til Vinnuháskúlan og aðrar skúlar, ið nýta WebUntis.*
 
 <p align="center">
-  <img src="tt.png" alt="Mynd av tímatalvuni" width="45%"/>
+  <img src="tt.png" alt="Mynd av tímatalvuni" width="100%"/>
 </p>
 
 ---
@@ -18,6 +18,10 @@ Endamálið við verkætlanini er at gera tað lættari og skjótari at hyggja a
 -  **Verjir títt privatlív:** Ongar sporingarfunktiónir eru í forritinum.
 -  **Føroyskt mál og snið:** Bygt við føroyskum brúkarum í huga.
 
+
+<p align="center">
+  <img src="tt2.png" alt="Mynd av stillingum" width="70%"/>
+</p>
 ---
 
 ## 📦 Hentleikar
