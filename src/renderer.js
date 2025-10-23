@@ -368,6 +368,8 @@ async function load() {
       if (saved) { try { resolvedElements = JSON.parse(saved); } catch {} }
     }
     if (!resolvedElements.length) {
+      // This is the first launch. Resolve the default name.
+      // The new resolveElementByName in main/untis.js is robust and will fetch if needed.
       const name = (api && api.defaultName) || "M5";
       const r = await api.resolveElementByName(name);
       if (reqId !== currentReqId) return;
