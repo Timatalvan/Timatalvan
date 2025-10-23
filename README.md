@@ -22,8 +22,8 @@ Google drive leinki til Tímatalvuna.exe og uppsetanar vegleiðing: [Tímatalvan
 Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja tímatalvuna, við hentum hentleikum sum:
 
 
--  **Minnir teg á tímar:** Fá boð 5 minuttir áðrenn ein tími byrjar.
--  **Egin tímatalva:** tekur tú fak saman við fleiri flokkum? Tú kanst velja hvørji fak verða víst.
+-  **Áminning:** Fá boð 5 minuttir áðrenn ein tími byrjar.
+-  **Egin tímatalva:** Tekur tú fak saman við fleiri flokkum? Tú kanst velja hvørji fak verða víst.
 -  **Føroyskt mál og snið:** Bygt við føroyskum brúkarum í huga.
 
 
@@ -35,14 +35,16 @@ Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja 
 ## 📦 Hentleikar
 
 -   **Skjótt:** Forritið goymir tímatalvuna lokalt (*caching*), so tað er skjótt at brúka, sjálvt um servarin hjá Untis er seinur.
--   **Fleiri í senn:** Vís tímatalvur fyri fleiri flokkar á eini tímatalvu.
--   **Reint snið:** Ein einkul brúkaraflata, ið leggur dent á tað, ið hevur týdning: tína tímatalvu.
--   **System Tray:** Forritið liggur stillisliga í tínum *system tray* og er altíð klárt við einum klikki.
+-   **Fleiri fak:** Vís ymiskt fak frá fleiri flokkaum á eini tímatalvu.
+-   **Reint snið:** Ein einkul brúkaraflata, ið leggur dent á tað, ið hevur týdning.
+-   **Ikki til ampa:** Forritið liggur í tínum *system tray* við síðuna av klokkuni, og er altíð klárt við einum klikki.
 -   **Boð:** Fá áminningar um komandi tímar og steðgir.
--   **Byrjar við innritan:** Tímatalvan kann byrja av sær sjálvari tá  ið tú ritar inn.
+-   **Byrjar við innritan:** Tímatalvan byrjar av sær sjálvari tá ið tú ritar inn, um tú velur tað.
 
 
 ---
+
+# Tú kanst byggja og broyta forritið
 
 ### Kravdur útbúnaður
 - [Node.js](https://nodejs.org/)
@@ -90,7 +92,7 @@ Verkætlanin er útgivin undir **MIT Lisensinum**. Sí `LICENSE` fyri meira kunn
 ## 🤝 Takk til
 
 - WebUntis fyri at veita backend-tænastuna.
-- Github fyri hjálp við menningini.
+- Github og Gemini fyri hjálp við menningini.
 - Næmingar og starvsfelagar fyri royndarkoyring og afturmelding.
 
 ---
@@ -112,3 +114,4 @@ Tú ert vælkomin at senda *pull requests* við betringum og nýggjum hentleikum
 ---
 
 ### Eystein 2025
+**Gevið gætur: Forritið kann innihalda páskaregg**
