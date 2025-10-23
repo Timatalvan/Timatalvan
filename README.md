@@ -4,7 +4,6 @@
 
 <p align="center">
   <img src="tt.png" alt="Mynd av tímatalvuni" width="45%"/>
-  <img src="tt2.png" alt="Mynd av stillingum" width="45%"/>
 </p>
 
 ---
