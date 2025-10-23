@@ -1,0 +1,115 @@
+#message2 {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -50%);
+  color: #2f3553;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+body {
+  background-color: #000;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+
+#skip-game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./layer.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#ground {
+  display: none;
+}
+
+
+#skip {
+  position: absolute;
+  bottom: 56px;
+  left: 50px;
+  width: 152.1px;
+  height: 86.19px;
+  background-image: url('./skip.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2; /* Behind the bar */
+}
+
+#alda {
+  position: absolute;
+  bottom: 53px;
+  left: 50px;
+  width: 152.1px; /* Same as player */
+  height: 86.19px; /* Same as player */
+  background-image: url('./alda.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 4; /* In front of player and bar */
+  display: none; /* Hidden by default */
+}
+
+#bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-image removed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 3; /* In front of the player */
+}
+
+.obstacle {
+  position: absolute;
+  bottom: 22px;
+  width: 41.6px;
+  height: 83.2px;
+  background-color: transparent; /* Use images instead of color */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 4; /* In front of the bar */
+  /* The 'left' property will now be controlled by transform */
+}
+
+.obstacle.boyja {
+  background-image: url('./boyja.gif');
+}
+
+.obstacle.boyja2 {
+  background-image: url('./boyja2.gif');
+}
+
+#score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+  font-weight: bold;;
+  color: #ff2a00;
+}
+
+#message {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #2f3553;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+

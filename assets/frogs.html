@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Frog Rain</title>
+    <link rel="stylesheet" href="frogs.css">
+</head>
+<body>
+    <script>
+        function createFrogs() {
+            for (let i = 0; i < 150; i++) {
+                const frog = document.createElement('div');
+                frog.textContent = '󠀠󠀠🐸';
+                frog.classList.add('frog-rain');
+                frog.style.left = `${Math.random() * 100}vw`;
+                frog.style.animationDuration = `${Math.random() * 2 + 3}s`; // 3-5 seconds
+                document.body.appendChild(frog);
+            }
+        }
+
+        // Initial batch
+        createFrogs();
+
+        // Listen for more frogs from main process
+        window.untis.onAddMoreFrogs(() => {
+            createFrogs();
+        });
+    </script>
+</body>
+</html>

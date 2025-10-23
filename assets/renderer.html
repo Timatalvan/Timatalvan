@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tímatalva</title>
+  <link id="main-stylesheet" rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="Tímatalva" class="window">
+    <div class="header">
+      <div class="title">
+        <div class="title-line1">Tímatalva</div>
+        <div class="title-line2" id="titleSelected"></div>
+      </div>
+
+      <!-- Weekday pill  -->
+      <div class="weekday-wrapper">
+        <div id="weekday" class="weekday-pill">—</div>
+        <img id="santaHat" src="./jol.png" alt=" ">
+      </div>
+
+      <div class="controls">
+        <button id="refresh" title="Dagfør">⭮ </button>
+        <button id="settings" title="Stillingar">⚙</button>
+        <button id="close" title="Fjal">✕</button>
+      </div>
+    </div>
+
+    <div id="list" class="list"></div>
+    <div id="footer" class="footer"></div>
+  </div>
+
+  <!-- Settings modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-title">Stillingar</div>
+
+      <div class="row">
+        <div class="seg">
+          <button id="modeClass"   class="seg-btn active">Flokkur</button>
+          <button id="modeTeacher" class="seg-btn">Lærari</button>
+          <button id="toggleSubjectBtn" class="seg-btn">+</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="filterInput">Sálda</label>
+        <input id="filterInput" placeholder="Skriva t.d. 5..." />
+      </div>
+
+      <div class="row">
+        <label>Vel</label>
+        <select id="classSelect" size="10"></select>
+        <select id="teacherSelect" size="10" class="hidden"></select>
+      </div>
+
+      <div id="modalError" class="modal-error"></div>
+
+      <div id="subject-search-container" class="row hidden">
+        <label for="manualSubjectInput">Legg tímar afturat</label>
+        <input id="manualSubjectInput" placeholder="Skriva tímanavn..." autocomplete="off" />
+        <div id="manual-suggestions-container"></div>
+      </div>
+
+      <div id="selected-subjects-container" class="row" style="display: none;">
+        <label>Valdir tímar</label>
+        <div id="selected-subjects-list" class="selected-subjects-list"></div>
+      </div>
+
+<!-- Notifications toggle switch -->
+<div style="display: flex; align-items: center; gap: 10px;">
+  <label class="switch" style="margin-bottom: 2;">
+    <input type="checkbox" id="notifToggle">
+    <span class="slider"></span>
+  </label>
+  <small style="margin: 0;">Boð</small>
+</div>
+      <div id="newSwitchRow" class="row hidden" style="flex-direction: row; align-items: center; gap: 10px;">
+        <label class="switch" style="margin-bottom: 2px;">
+          <input type="checkbox" id="newSwitch">
+          <span class="slider"></span>
+        </label>
+        <small style="margin: 0;">Gamli skúli</small>
+      </div>
+
+      <div class="modal-actions">
+        <button id="helpBtn" class="btn btn-help">Hjálp</button>
+        <button id="saveName" class="btn">Goym</button>
+        <button id="cancelModal" class="btn btn-secondary">Angra</button>
+      </div>
+    </div>
+  </div>
+
+      <script src="../src/renderer.js" defer></script>
+</body>
+</html>

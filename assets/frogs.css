@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.frog-rain {
+    position: absolute;
+    top: -150px;
+    font-size: 24px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    animation-name: fall;
+    animation-timing-function: linear;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(0) rotate(0deg);
+    }
+    to {
+        transform: translateY(120vh) rotate(720deg);
+    }
+}

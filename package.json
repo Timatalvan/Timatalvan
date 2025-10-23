@@ -1,0 +1,45 @@
+{
+  "name": "timatalva",
+  "version": "1.1.0",
+  "description": "Tímatalva - Windows",
+  "type": "module",
+  "main": "src/main.js",
+  "author": {
+    "name": "Eystein"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder -w"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "electron-store": "^8.2.0",
+    "webuntis": "2.2.1"
+  },
+  "devDependencies": {
+    "electron": "28.3.3",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "asar": false,
+    "electronLanguages": [
+      "en-US",
+      "fo"
+    ],
+    "appId": "timatalva",
+    "productName": "Tímatalva",
+    "files": [
+      "src/**",
+      "assets/**",
+      "package.json"
+    ],
+    "extraResources": [
+      "assets/icon.ico",
+      ".env"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    }
+  }
+}
