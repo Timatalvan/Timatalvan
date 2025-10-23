@@ -1,8 +1,15 @@
 # Tímatalvan
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Built with Electron](https://img.shields.io/badge/Built%20with-Electron-47848F.svg)
+![Language: Faroese](https://img.shields.io/badge/Language-Faroese-lightgrey)
+> 🇫🇴 *Faroese version below.*  
+> **Tímatalvan** is a small Electron program for viewing WebUntis schedules — built for students and teachers at the Faroese maritime school.
+
+
 
 **Tímatalvu forrit til webuntis tímatalvuna hjá Vinnuháskúlanum.**
 
-Google drive leinki við forritinum og vegleiðing: [Tímatalvan](https://drive.google.com/drive/folders/1woR5El6N9R-dJjr69zTJUhJhPGfaQ-sg?usp=drive_link)
+Google drive leinki til Tímatalvuna.exe og uppsetanar vegleiðing: [Tímatalvan](https://drive.google.com/drive/folders/1woR5El6N9R-dJjr69zTJUhJhPGfaQ-sg?usp=drive_link)
 
 <p align="center">
   <img src="tt.png" alt="Mynd av tímatalvuni" width="100%"/>
