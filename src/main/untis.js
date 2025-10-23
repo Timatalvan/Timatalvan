@@ -248,15 +248,42 @@ async function fetchPublicTeachers() {
 }
 
 export async function resolveElementByName(name) {
-  const allElements = await listElements();
-  const target = norm(name);
+  const findInLists = (elements, targetName) => {
+    let target = norm(targetName);
 
-  const classHit = allElements.classes.find(cl => norm(cl.label) === target);
-  if (classHit) return { id: classHit.id, type: WebUntisElementType.CLASS, label: classHit.label };
+    // Handle "M<number>" abbreviation for "Maskinflokkur <number>"
+    const mPattern = /^m(\d+)$/;
+    const match = target.match(mPattern);
+    if (match) {
+      const expandedTarget = `maskinflokkur ${match[1]}`;
+      const classHit = elements.classes.find(cl => norm(cl.label) === expandedTarget);
+      if (classHit) return { id: classHit.id, type: WebUntisElementType.CLASS, label: classHit.label };
+    }
 
-  const teacherHit = allElements.teachers.find(p => normInits(p.label) === normInits(target));
-  if (teacherHit) return { id: teacherHit.id, type: WebUntisElementType.TEACHER, label: teacherHit.label };
+    // Original search logic
+    const classHit = elements.classes.find(cl => norm(cl.label) === target);
+    if (classHit) return { id: classHit.id, type: WebUntisElementType.CLASS, label: classHit.label };
 
+    const teacherHit = elements.teachers.find(p => normInits(p.label) === normInits(target));
+    if (teacherHit) return { id: teacherHit.id, type: WebUntisElementType.TEACHER, label: teacherHit.label };
+
+    return null;
+  };
+
+  // First attempt: use existing cache if available
+  let allElements = await listElements();
+  let result = findInLists(allElements, name);
+  if (result) return result;
+
+  // If not found, cache might be stale or empty. Force a refresh.
+  invalidateCache();
+  allElements = await listElements(); // This will now fetch from network
+
+  // Second attempt: search the fresh list
+  result = findInLists(allElements, name);
+  if (result) return result;
+
+  // If still not found, throw the error.
   throw new Error(`Fann ikki "${name}" sum flokk ella lærara.`);
 }
 
@@ -288,6 +315,7 @@ export async function listElements() {
   }
 
   return withClient(async (c) => {
+    console.log("listElements: Cache is invalid, fetching from network...");
     let classes = [], teachers = [], subjects = [];
     try {
       const cl = await c.getClasses();
@@ -295,7 +323,10 @@ export async function listElements() {
         id: cls.id, type: WebUntisElementType.CLASS,
         label: cls.longName || cls.name || String(cls.id)
       })).sort((a,b) => a.label.localeCompare(b.label, undefined, { sensitivity: "base" }));
-    } catch {}
+      console.log(`listElements: Fetched ${classes.length} classes.`);
+    } catch (e) {
+        console.error("listElements: Error fetching classes:", e);
+    }
 
     try {
         const su = await c.getSubjects();
@@ -304,14 +335,19 @@ export async function listElements() {
             name: s.name,
             longName: s.longName
         })).sort((a, b) => (a.longName || a.name).localeCompare(b.longName || b.name, undefined, { sensitivity: "base" }));
-    } catch {}
+    } catch (e) {
+        console.error("listElements: Error fetching subjects:", e);
+    }
 
     try {
       const t = await c.getTeachers();
       teachers = t.map(te => ({
         id: te.id, type: WebUntisElementType.TEACHER, label: teacherLabelFromAny(te)
       })).filter(x => x.id && x.label);
-    } catch {}
+      console.log(`listElements: Fetched ${teachers.length} teachers from API.`);
+    } catch (e) {
+        console.error("listElements: Error fetching teachers from API:", e);
+    }
     try {
       const pub = await fetchPublicTeachers();
       const byId = new Map(teachers.map(t => [String(t.id), t]));
@@ -322,7 +358,10 @@ export async function listElements() {
       teachers = Array.from(byId.values());
       const seen = new Set();
       teachers = teachers.filter(x => (seen.has(x.label) ? false : (seen.add(x.label), true)));
-    } catch {}
+      console.log(`listElements: Merged public teachers, total is now ${teachers.length}.`);
+    } catch (e) {
+        console.error("listElements: Error fetching/merging public teachers:", e);
+    }
 
     teachers.sort((a,b) => a.label.localeCompare(b.label, undefined, { sensitivity: "base" }));
 
@@ -330,6 +369,7 @@ export async function listElements() {
     cache.classes = classes;
     cache.teachers = teachers;
     cache.subjects = subjects;
+    console.log("listElements: Cache populated.");
 
     return { classes, teachers, subjects, meta: { classesAvailable: classes.length>0, teachersAvailable: teachers.length>0 } };
   });
