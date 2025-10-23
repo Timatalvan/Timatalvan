@@ -124,7 +124,9 @@ Tú ert vælkomin at senda *pull requests* við betringum og nýggjum hentleikum
 ---
 #### Google drive leinki til Tímatalvan.exe og uppsetanar vegleiðing er her &rarr; [Tímatalvan](https://drive.google.com/drive/folders/1woR5El6N9R-dJjr69zTJUhJhPGfaQ-sg?usp=drive_link)
 
-**Gevið gætur: Forritið kann innihalda páskaregg**
+** *Gevið gætur: Forritið kann innihalda páskaregg* **
 <br>
+
+** *Tímatalvan hevur onki vinnuligt tílknýti til hvørki Vinnuháskúlan ella WebUntis* **
 
 ### Eystein 2025
