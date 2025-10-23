@@ -2,14 +2,17 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Built with Electron](https://img.shields.io/badge/Built%20with-Electron-47848F.svg)
 ![Language: Faroese](https://img.shields.io/badge/Language-Faroese-lightgrey)
+
 > 🇫🇴 *Faroese version below.*  
 > **Tímatalvan** is a small Electron program for viewing WebUntis schedules — built for students and teachers at the Faroese maritime school.
+---
+<br>
 
+#### Google drive leinki til Tímatalvan.exe og uppsetanar vegleiðing er her &rarr; [Tímatalvan](https://drive.google.com/drive/folders/1woR5El6N9R-dJjr69zTJUhJhPGfaQ-sg?usp=drive_link)
+<br>
 
+## Tímatalvu forrit til webuntis tímatalvuna hjá Vinnuháskúlanum.
 
-**Tímatalvu forrit til webuntis tímatalvuna hjá Vinnuháskúlanum.**
-
-Google drive leinki til Tímatalvuna.exe og uppsetanar vegleiðing: [Tímatalvan](https://drive.google.com/drive/folders/1woR5El6N9R-dJjr69zTJUhJhPGfaQ-sg?usp=drive_link)
 
 <p align="center">
   <img src="tt.png" alt="Mynd av tímatalvuni" width="100%"/>
@@ -35,8 +38,8 @@ Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja 
 ## 📦 Hentleikar
 
 -   **Skjótt:** Forritið goymir tímatalvuna lokalt (*caching*), so tað er skjótt at brúka, sjálvt um servarin hjá Untis er seinur.
--   **Fleiri fak:** Vís ymiskt fak frá fleiri flokkaum á eini tímatalvu.
--   **Reint snið:** Ein einkul brúkaraflata, ið leggur dent á tað, ið hevur týdning.
+-   **Fleiri fak:** Vís ymiskt fak frá fleiri flokkum á eini tímatalvu.
+-   **Reint snið:** Einkul brúkaraflata, ið leggur dent á tað, ið hevur týdning.
 -   **Ikki til ampa:** Forritið liggur í tínum *system tray* við síðuna av klokkuni, og er altíð klárt við einum klikki.
 -   **Boð:** Fá áminningar um komandi tímar og steðgir.
 -   **Byrjar við innritan:** Tímatalvan byrjar av sær sjálvari tá ið tú ritar inn, um tú velur tað.
@@ -83,7 +86,7 @@ Installeringsfílurin verður stovnaður í `dist` mappuni.
 
 ---
 
-## 🧾 Lisens
+## 🧾 Lisensur
 
 Verkætlanin er útgivin undir **MIT Lisensinum**. Sí `LICENSE` fyri meira kunning.
 
@@ -112,6 +115,9 @@ Allir upplýsingar um flokksval verða goymdir lokalt á tínari teldu.
 Tú ert vælkomin at senda *pull requests* við betringum og nýggjum hentleikum.
 
 ---
+#### Google drive leinki til Tímatalvan.exe og uppsetanar vegleiðing er her &rarr; [Tímatalvan](https://drive.google.com/drive/folders/1woR5El6N9R-dJjr69zTJUhJhPGfaQ-sg?usp=drive_link)
+
+**Gevið gætur: Forritið kann innihalda páskaregg**
+<br>
 
 ### Eystein 2025
-**Gevið gætur: Forritið kann innihalda páskaregg**
