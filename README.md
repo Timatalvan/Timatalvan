@@ -54,7 +54,7 @@ Ynskir tú at fáa tímatalvuna á tína teldu, kanst tú gera tað her &rarr; [
 
 ---
 
-# Vilt betra um forritið, ella bara royna tað í terminalinum
+# Vilt tú betra um forritið, ella bara royna tað í terminalinum
 
 ### Kravdur útbúnaður
 - [Node.js](https://nodejs.org/)
