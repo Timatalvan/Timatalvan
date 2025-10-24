@@ -31,7 +31,7 @@ Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja 
 
 
 <p align="right">
-  <img src="tt2.png" alt="Mynd av stillingum" width="45%"/>
+  <img src="tt2.png" alt="Mynd av stillingum" width="90%"/>
 </p>
 
 
