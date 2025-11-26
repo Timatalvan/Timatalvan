@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Play looping music when game window is running
   const music = document.getElementById("game-music");
   if (music) {
-    music.volume = 0.5;
+    music.volume = 0.9;
     music.play().catch(()=>{});
     // Robust loop: restart immediately on end
     music.addEventListener('ended', () => {
@@ -103,7 +103,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Sync music speed to obstacle speed
     if (music) {
-      const speedMultiplier = 1 + 0.05 * Math.min(Math.floor(state.score / 1000), 14);
+      const speedMultiplier = 1 + 0.05 * Math.min(Math.floor(state.score / 1000), 13);
       music.playbackRate = speedMultiplier;
     }
 
@@ -119,11 +119,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Spawn obstacles
     state.frameCount++;
-  // Increase spawn rate every 5000 points, but stop increasing after 15000
-  const cappedScore = Math.min(state.score, 15000);
+  // Increase spawn rate every 5000 points, but stop increasing after 13000 points
+  const cappedScore = Math.min(state.score, 13000);
   const spawnLevel = Math.floor(cappedScore / 5000);
   const minFrame = Math.max(20, 60 - 10 * spawnLevel); // never less than 20
-  const prob = Math.min(0.15, 0.04 + 0.02 * spawnLevel); // cap at 0.15
+  const prob = Math.min(0.13, 0.04 + 0.02 * spawnLevel); // cap at 0.13
     if (state.frameCount > minFrame && Math.random() < prob) {
       const obstacle = document.createElement("div");
       const obstacleType = Math.random() < 0.5 ? 'boyja' : 'boyja2';
@@ -138,8 +138,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const skipRect = skip.getBoundingClientRect();
     for (let i = obstacles.length - 1; i >= 0; i--) {
       const obstacleData = obstacles[i];
-  // Increase speed by 5% for every 1000 points, capped at 14000 points
-  const speedMultiplier = 1 + 0.05 * Math.min(Math.floor(state.score / 1000), 14);
+  // Increase speed by 5% for every 1000 points, capped at 13000 points
+  const speedMultiplier = 1 + 0.05 * Math.min(Math.floor(state.score / 1000), 13);
   obstacleData.x -= state.gameSpeed * speedMultiplier;
       obstacleData.element.style.transform = `translateX(${obstacleData.x}px)`;
 

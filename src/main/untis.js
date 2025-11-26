@@ -229,8 +229,7 @@ async function fetchPublicDay(elementType, elementId, dateStr) {
 }
 
 async function fetchPublicTeachers() {
-    // This function uses a public, unauthenticated endpoint, so it doesn't need the session.
-    // However, to prevent it from running concurrently with a login, we can wrap it.
+    // Public fetch method which doesn't require the authenticated client.
     return withClient(async () => {
         const json = await fetchJSONPublic(`/api/public/timetable/weekly/pageconfig?type=2`);
         const arr = json?.data?.elements || [];
@@ -295,8 +294,7 @@ export async function getToday(id, type) {
 }
 
 export async function getForDate(id, type, dateStr) {
-  // This function seems to be using a public fetch method which doesn't require the authenticated client.
-  // It can remain as is, but for consistency, we could wrap it if it ever needs authentication.
+  // Public fetch method which doesn't require the authenticated client.
   return await fetchPublicDay(type, id, dateStr);
 }
 
