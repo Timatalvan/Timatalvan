@@ -9,6 +9,11 @@ const weekdayEl = document.getElementById("weekday");
 const rootEl = document.getElementById("Tímatalva");
 const santaHat = document.getElementById("santaHat");
 
+// Zoom feature
+const zoomSwitchRow = document.getElementById("zoomSwitchRow");
+const zoomSwitch = document.getElementById("zoomSwitch");
+const ZOOM_SWITCH_KEY = "untis.zoomSwitch";
+
 // Notification toggle:
 
 const NOTIF_KEY = "untis.notifications";
@@ -98,34 +103,42 @@ function scheduleMidnightRollover() {
 }
 
 /* ---------- Window auto-resize (de-jitter + modal-aware) ---------- */
+let lastSentW = 0;
 let lastSentH = 0;
 function sendContentHeight() {
   try {
     if (!window.untis || typeof window.untis.resizeTo !== "function") return;
+
+    const isZoomed = zoomSwitch.checked;
+    const targetWidth = isZoomed ? 372 : 310;
 
     const base = (() => {
       const el = document.getElementById("Tímatalva");
       return el ? Math.ceil(el.getBoundingClientRect().height) : 0;
     })();
 
-    let needed = base;
+    let neededH = base;
     if (modal && !modal.classList.contains("hidden")) {
       const card = modal.querySelector(".modal-card");
       if (card) {
         const r = card.getBoundingClientRect();
-        needed = Math.max(needed, Math.ceil(r.height + 32));
+        neededH = Math.max(neededH, Math.ceil(r.height + (isZoomed ? 38 : 32) )); // larger padding when zoomed
       }
     }
+    
+    const neededW = targetWidth;
 
-    if (needed > 20 && Math.abs(needed - lastSentH) >= 2) {
-      lastSentH = needed;
-      window.untis.resizeTo({ height: needed, id: window.untis.winId });
+    if ( (neededH > 20 && Math.abs(neededH - lastSentH) >= 2) || (neededW > 20 && Math.abs(neededW - lastSentW) >= 2) ) {
+      lastSentH = neededH;
+      lastSentW = neededW;
+      window.untis.resizeTo({ width: neededW, height: neededH, id: window.untis.winId });
     }
   } catch {}
 }
 const ro = new ResizeObserver(() => requestAnimationFrame(sendContentHeight));
 if (rootEl) ro.observe(rootEl);
 const modalCardEl = document.querySelector(".modal-card");
+
 if (modalCardEl) ro.observe(modalCardEl);
 
 /* ---------- Time formatting ---------- */
@@ -513,9 +526,13 @@ function openModal() {
   if (newSwitchRow) {
     newSwitchRow.classList.add("hidden");
   }
+  if (zoomSwitchRow) {
+    zoomSwitchRow.classList.add("hidden");
+  }
   ensureLists().then(() => {
     // Cache all subjects for live search
     allSubjects = cachedLists?.subjects || [];
+
 
     const primary = resolvedElements?.[0];
     mode = (primary && primary.type === 2) ? "teacher" : "class";
@@ -751,9 +768,13 @@ filterInput.oninput = () => {
   if (newSwitchRow) {
     newSwitchRow.classList.toggle("hidden", filterValue !== "retro");
   }
+  if (zoomSwitchRow) {
+    zoomSwitchRow.classList.toggle("hidden", filterValue !== "brillur");
+  }
   if (filterValue === "spæl") {
     if (window.untis && window.untis.openGame) {
       window.untis.openGame();
+
     }
     filterInput.value = ""; // Clear input after triggering
   }
@@ -882,6 +903,24 @@ if (newSwitch) {
   newSwitch.onchange = () => {
     localStorage.setItem(NEW_SWITCH_KEY, newSwitch.checked ? "on" : "off");
     setStylesheet();
+    filterInput.value = '';
+    fillOptions();
+  };
+}
+
+if (zoomSwitch) {
+  const setZoom = () => {
+    const isZoomed = zoomSwitch.checked;
+    document.documentElement.style.setProperty('--zoom', isZoomed ? '1.2' : '1');
+    sendContentHeight(); // Recalculate size after zoom change
+  };
+
+  zoomSwitch.checked = localStorage.getItem(ZOOM_SWITCH_KEY) === "on";
+  setZoom();
+
+  zoomSwitch.onchange = () => {
+    localStorage.setItem(ZOOM_SWITCH_KEY, zoomSwitch.checked ? "on" : "off");
+    setZoom();
     filterInput.value = '';
     fillOptions();
   };

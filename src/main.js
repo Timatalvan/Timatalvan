@@ -159,10 +159,30 @@ function setupIpc() {
   ipcMain.on("resize-window", (_e, payload) => {
     const win = BrowserWindow.fromId(payload.id);
     if (!win) return;
-    const targetH = clampContentHeight(Number(payload.height) || 0);
+
+    const newW = Number(payload.width) || 0;
+    const newH = clampContentHeight(Number(payload.height) || 0);
+
     const [currentW, currentH] = win.getContentSize();
-    if (Math.abs(targetH - currentH) < 2) return;
-    win.setContentSize(currentW, targetH, true);
+    const bounds = win.getBounds();
+    const display = screen.getDisplayMatching(bounds).workArea;
+
+    // Only resize/move if there's a meaningful change
+    if (Math.abs(newW - currentW) < 2 && Math.abs(newH - currentH) < 2) {
+      return;
+    }
+
+    const newX = display.x + display.width - newW;
+
+    // Set bounds and content size
+    // Note: setContentSize might not be needed if setBounds works reliably for this.
+    // Using setBounds is generally better for positioning and sizing simultaneously.
+    win.setBounds({
+      x: newX,
+      y: bounds.y, // Keep original y
+      width: newW,
+      height: newH,
+    }, true); // Animate
   });
   ipcMain.on("open-untis-week", (_e, payload) => {
     const elementId = Number(payload?.id);

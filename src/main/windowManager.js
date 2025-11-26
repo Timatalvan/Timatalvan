@@ -4,7 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "url";
 import fs from "fs";
 
-const WIN_WIDTH = 304;
+const WIN_WIDTH = 310;
 const MIN_HEIGHT = 140;
 
 let win = null;
@@ -35,20 +35,20 @@ function clampContentHeight(h) {
 function placeTopRight(targetWin) {
     if (!targetWin) return;
     const { workArea } = screen.getPrimaryDisplay();
-    const currentBounds = targetWin.getBounds();
-    // Use the known WIN_WIDTH instead of relying on getBounds().width
+    const { width, height } = targetWin.getBounds();
+    
     targetWin.setBounds({ 
-        x: Math.round(workArea.x + workArea.width - WIN_WIDTH), 
+        x: Math.round(workArea.x + workArea.width - width), 
         y: Math.round(workArea.y), 
-        width: WIN_WIDTH, 
-        height: currentBounds.height 
+        width: width, 
+        height: height 
     });
 }
 
 function createWindow() {
     const preloadPath = path.join(__dirname, "..", "preload.cjs");
     win = new BrowserWindow({
-        width: WIN_WIDTH, height: 442, useContentSize: true,
+        width: WIN_WIDTH, height: 442, useContentSize: false, // Set to false because setBounds considers total size
         show: false, // Start hidden
         alwaysOnTop: true, frame: false, transparent: true, resizable: false, skipTaskbar: true,
         icon: getIconPath(),
