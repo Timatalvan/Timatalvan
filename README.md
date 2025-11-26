@@ -22,7 +22,7 @@
 
 **Tímatalvan** er eitt lítið forrit ment við Electron, ið vísir tímatalvuna frá [WebUntis](https://webuntis.com/). Forritið er gjørt til næmingar og lærarar á vinnuháskúlanum.
 
-Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja tímatalvuna, við hentum hentleikum sum:
+Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja tímatalvuna, við hentleikum sum:
 
 
 -  **Áminning:** Fá boð 5 minuttir áðrenn ein tími byrjar.
@@ -37,7 +37,7 @@ Endamálið við verkætlanini er at gera tað lættari og skjótari at síggja 
 
 ## 📦 Hentleikar
 
--   **Skjótt:** Forritið goymir tímatalvuna lokalt (*caching*), so tað er skjótt at brúka, sjálvt um servarin hjá Untis er seinur.
+-   **Skjótt:** Forritið goymir tímatalvuna lokalt (*caching*).
 -   **Fleiri fak:** Vís ymiskt fak frá fleiri flokkum á eini tímatalvu.
 -   **Reint snið:** Einkul brúkaraflata, ið leggur dent á tað, ið hevur týdning.
 -   **Ikki til ampa:** Forritið liggur í tínum *system tray* við síðuna av klokkuni, og er klárt við einum klikki.
@@ -50,7 +50,7 @@ Ynskir tú at fáa tímatalvuna á tína teldu, kanst tú gera tað her &rarr; [
 . Vegleiðing er eisini á sama stað.
 <br>
 
-** *Gevið gætur: forritið kann innihalda páskaregg* **
+
 
 ---
 
@@ -112,7 +112,7 @@ Verkætlanin er útgivin undir **MIT Lisensinum**. Sí `LICENSE` fyri meira kunn
 Hetta forritið:
 - Savnar ella sendir ikki brúkaradáta.
 - Nýtir ikki nakað slag av analysu ella sporing.
-- Fær ikki atgongd til staðseting, mikrofon ella kamera.
+- kann ikki fáa atgongd til staðseting, mikrofon ella kamera.
 
 Allir upplýsingar um flokksval verða goymdir lokalt á tínari teldu.
 
